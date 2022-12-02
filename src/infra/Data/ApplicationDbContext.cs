@@ -1,9 +1,7 @@
-﻿namespace IWantApp.infra.Data;
-
+﻿
 using IWantApp.Domain.Products;
-using Microsoft.EntityFrameworkCore;
 
-
+namespace IWantApp.infra.Data;
 public class ApplicationDbContext : DbContext
 {
 
@@ -14,8 +12,12 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<Product>()
-            .Property(p => p.Description).HasMaxLength(500).IsRequired(false);
-        builder.Entity<Product>()
+       
+    }
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configuration)
+    {
+        configuration.Properties<string>()
+            .HaveMaxLength(100);
     }
 }
