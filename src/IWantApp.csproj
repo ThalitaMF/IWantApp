@@ -14,7 +14,7 @@
   <ItemGroup>
     <EditorConfigFiles Remove="C:\Users\thali\OneDrive\Documentos\MeusProjetos\IWantApp\src\.editorconfig" />
   </ItemGroup>
-
+	
   <ItemGroup>
     <None Include="C:\Users\thali\OneDrive\Documentos\MeusProjetos\IWantApp\src\.editorconfig" />
   </ItemGroup>
