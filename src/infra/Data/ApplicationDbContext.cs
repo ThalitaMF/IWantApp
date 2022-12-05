@@ -1,5 +1,6 @@
-﻿
-using IWantApp.Domain.Products;
+﻿using IWantApp.Domain.Products;
+using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace IWantApp.infra.Data;
 public class ApplicationDbContext : DbContext
