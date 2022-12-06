@@ -11,14 +11,14 @@ public class ApplicationDbContext : DbContext
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :base(options) { }
 
-    protected override object OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        modelBuilder.Entity<Product>()
+        builder.Entity<Product>()
              .Property(p => p.Name).IsRequired();
-        modelBuilder.Entity<Product>()
+        builder.Entity<Product>()
              .Property(p => p.Description).HasMaxLength(255);
-        modelBuilder.Entity<Category>()
-             .Property(c => c.Name).IsRequired;
+        builder.Entity<Category>()
+             .Property(c => c.Name).IsRequired();
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configuration)
