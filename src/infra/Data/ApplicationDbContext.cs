@@ -1,6 +1,5 @@
 ﻿using IWantApp.Domain.Products;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace IWantApp.infra.Data;
 public class ApplicationDbContext : DbContext
@@ -17,10 +16,11 @@ public class ApplicationDbContext : DbContext
              .Property(p => p.Name).IsRequired();
         builder.Entity<Product>()
              .Property(p => p.Description).HasMaxLength(255);
+
         builder.Entity<Category>()
              .Property(c => c.Name).IsRequired();
-    }
 
+    }
     protected override void ConfigureConventions(ModelConfigurationBuilder configuration)
     {
         configuration.Properties<string>()
