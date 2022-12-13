@@ -1,4 +1,4 @@
-﻿using IWantApp.Domain.Products;
+using IWantApp.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 
 namespace IWantApp.infra.Data;
@@ -27,3 +27,4 @@ public class ApplicationDbContext : DbContext
             .HaveMaxLength(100);
     }
 }
+
