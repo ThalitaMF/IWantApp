@@ -1,4 +1,4 @@
-﻿namespace IWantApp.Domain.Products;
+namespace IWantApp.Domain.Products;
 
 public class Product : Entity
 {
@@ -8,6 +8,5 @@ public class Product : Entity
     public string Description { get; set; }
     public bool HasStock { get; set; }
     public bool Active { get; private set; } = true;
-    
-    }
-   
+
+}
