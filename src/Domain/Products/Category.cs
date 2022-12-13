@@ -1,10 +1,8 @@
-﻿namespace IWantApp.Domain.Products
-{
+﻿using IWantApp.Domain;
+
     public class Category : Entity
-    {
-       
-        public string Name { get; set; }
-        public bool Active { get; set; } = true;
-     
-    }
+{
+
+    public string Name { get; set; }
+    public bool Active { get; set; } = true;
 }
