@@ -1,5 +1,6 @@
-﻿using IWantApp.Domain.Products;
+using IWantApp.Domain.Products;
 using IWantApp.infra.Data;
+using Flunt;
 
 namespace IWantApp.Endpoints.Categories;
 
@@ -10,14 +11,9 @@ public class CategoryPost
     public static Delegate Handle => Action;
     public static IResult Action(CategoryRequest categoryRequest, ApplicationDbContext context)
     {
+
+        var category = new Category(categoryRequest.Name, "Denin", "Denin");
         
-        var category = new Category(categoryRequest.Name)
-        {
-            CreatedBy = "Test",
-            CreatedOn= DateTime.Now,
-            EditedBy= "Test",
-            EditedOn= DateTime.Now,
-        };
 
         if (!category.IsValid)
         {
