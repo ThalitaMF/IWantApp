@@ -1,5 +1,6 @@
-﻿using IWantApp.Domain.Products;
+using IWantApp.Domain.Products;
 using IWantApp.infra.Data;
+using Flunt;
 
 namespace IWantApp.Endpoints.Categories;
 

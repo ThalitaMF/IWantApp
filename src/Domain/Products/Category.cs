@@ -1,10 +1,12 @@
-﻿using IWantApp.Domain;
+﻿using Flunt.Validations;
+using IWantApp.Domain;
 
     public class Category : Entity
 {
 
     public string Name { get; set; }
     public bool Active { get; set; }
+
 
     public Category(string name, string createdBy, string editedBy)
     {
@@ -19,5 +21,4 @@
         CreatedOn = DateTime.Now;
         EditedBy = editedBy;
         EditedOn = DateTime.Now;
-    }
 }
