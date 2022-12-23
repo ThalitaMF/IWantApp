@@ -1,6 +1,3 @@
-using IWantApp.Domain.Products;
-using IWantApp.infra.Data;
-using Flunt;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -18,19 +15,18 @@ public class EmployeePost
 
         if (!result.Succeeded)
         {
-            return Results.BadRequest(result.Errors.First());
+            return Results.ValidationProblem(result.Errors.ConvertToProblemDetails());
         }
+
+        var userClaims = new List<Claim>
+        {
+            new Claim("EmployeeCode", employeeRequest.EmployeeCode),
+            new Claim("Name", employeeRequest.Name)
+
+        };
 
        var claimResult =
-            userManager.AddClaimAsync(user, new Claim("EmployeeCode", employeeRequest.EmployeeCode)).Result;
-
-        if (!claimResult.Succeeded)
-        {
-            return Results.BadRequest(claimResult.Errors.First());
-        }
-
-        claimResult =
-            userManager.AddClaimAsync(user, new Claim("Name", employeeRequest.Name)).Result;
+            userManager.AddClaimsAsync(user, userClaims).Result;
 
         if (!claimResult.Succeeded)
         {
